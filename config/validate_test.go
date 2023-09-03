@@ -3,7 +3,7 @@ package config_test
 import (
 	"testing"
 
-	"github.com/kava-labs/kava-proxy-service/config"
+	"github.com/four4two/fury-proxy-service/config"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -38,7 +38,7 @@ func TestUnitTestValidateConfigReturnsErrorIfInvalidProxyBackendHostURL(t *testi
 	// turns out it's actually very hard to make a non-parseable url 😅
 	// https://pkg.go.dev/net/url#Parse
 	// > The url may be relative (a path, without a host) or absolute (starting with a scheme). Trying to parse a hostname and path without a scheme is invalid but may not necessarily return an error, due to parsing ambiguities.
-	testConfig.ProxyBackendHostURLMapRaw = "kava.com/path%^"
+	testConfig.ProxyBackendHostURLMapRaw = "fury.com/path%^"
 
 	err := config.Validate(testConfig)
 
@@ -47,7 +47,7 @@ func TestUnitTestValidateConfigReturnsErrorIfInvalidProxyBackendHostURL(t *testi
 
 func TestUnitTestValidateConfigReturnsErrorIfInvalidProxyBackendHostURLComponents(t *testing.T) {
 	testConfig := defaultConfig
-	testConfig.ProxyBackendHostURLMapRaw = "localhost:7777,localhost:7778>http://kava:8545$^,localhost:7777>http://kava:8545"
+	testConfig.ProxyBackendHostURLMapRaw = "localhost:7777,localhost:7778>http://fury:8545$^,localhost:7777>http://fury:8545"
 
 	err := config.Validate(testConfig)
 

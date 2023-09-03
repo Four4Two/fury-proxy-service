@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kava-labs/kava-proxy-service/config"
-	"github.com/kava-labs/kava-proxy-service/service"
+	"github.com/four4two/fury-proxy-service/config"
+	"github.com/four4two/fury-proxy-service/service"
 	"github.com/stretchr/testify/assert"
 )
 

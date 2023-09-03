@@ -81,10 +81,10 @@ reset: lint
 refresh:
 	docker compose up -d proxy --build --force-recreate
 
-# poll kava service status endpoint until it doesn't error
+# poll fury service status endpoint until it doesn't error
 .PHONY: ready
 ready:
-	./scripts/wait-for-kava-node-running.sh && \
+	./scripts/wait-for-fury-node-running.sh && \
 	./scripts/wait-for-proxy-service-running.sh
 
 .PHONY: logs

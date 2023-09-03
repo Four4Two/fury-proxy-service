@@ -29,4 +29,4 @@ RUN go install
 # map port 7777 from the host to the container and run the
 # proxy service
 EXPOSE 7777
-CMD ["kava-proxy-service"]
+CMD ["fury-proxy-service"]

@@ -45,4 +45,4 @@ jobs:
           file: ./production.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: kava/kava-proxy-service:${{ steps.commit-hash.outputs.short }},kava/kava-proxy-service:latest
+          tags: fury/fury-proxy-service:${{ steps.commit-hash.outputs.short }},fury/fury-proxy-service:latest

@@ -53,13 +53,13 @@ server := &http.Server{
 
 ### Request Logging Middleware
 
-1. Logs the request body to stdout and stores a parsed version of the request body in the context key `X-KAVA-PROXY-DECODED-REQUEST-BODY` for use by other middleware.
+1. Logs the request body to stdout and stores a parsed version of the request body in the context key `X-FURY-PROXY-DECODED-REQUEST-BODY` for use by other middleware.
 
 ### Proxy Middleware
 
 1. Proxies the request to the configured backend origin server.
 
-1. Times the roundtrip latency for the response from the backend origin server and stores the latency in the context key `X-KAVA-PROXY-ORIGIN-ROUNDTRIP-LATENCY-MILLISECONDS` for use by other middleware.
+1. Times the roundtrip latency for the response from the backend origin server and stores the latency in the context key `X-FURY-PROXY-ORIGIN-ROUNDTRIP-LATENCY-MILLISECONDS` for use by other middleware.
 
 ### After Proxy Middleware
 

@@ -10,7 +10,7 @@ The following dependencies are required to build and run the proxy service:
 - [Docker Compose (v2+)](https://docs.docker.com/compose/install/) for orchestrating containers for the service and it's dependencies (e.g. postgres database and redis cache)
 - [Delve](https://github.com/go-delve/delve/tree/master/Documentation/installation) for step debugging of running golang processes
 - [JQ](https://stedolan.github.io/jq/download/) for parsing JSON output by utility scripts
-- Kava CLI can be installed by checking out [kava repo](https://github.com/Kava-Labs/kava) and running `make install`
+- Fury CLI can be installed by checking out [fury repo](https://github.com/Four4Two/fury) and running `make install`
 
 ## Configuration
 
@@ -20,8 +20,8 @@ Adjusting or setting of values to be used by `make`, `docker-compose` or any of 
 ##### Local development config
 
 # Values used by `make`
-CONTAINER_NAME=kava-proxy-service
-IMAGE_NAME=kava-labs/kava-proxy-service
+CONTAINER_NAME=fury-proxy-service
+IMAGE_NAME=four4two/fury-proxy-service
 LOCAL_IMAGE_TAG=local
 PRODUCTION_IMAGE_TAG=latest
 
@@ -29,7 +29,7 @@ PRODUCTION_IMAGE_TAG=latest
 POSTGRES_CONTAINER_PORT=5432
 POSTGRES_HOST_PORT=5432
 
-##### Kava Proxy Config
+##### Fury Proxy Config
 LOG_LEVEL=DEBUG
 
 etc...
@@ -61,8 +61,8 @@ Alternatively one can compile tbe service binary in the current directory:
 ```bash
 # requires go 1.20 or greater
 ⋊> go build
-⋊> ./kava-proxy-service        13:55:22
-{"level":"info","time":"2023-03-02T13:55:25-08:00","caller":"/Users/levischoen/forges/kava/kava-proxy-service/main.go:38","message":"There and back again"}
+⋊> ./fury-proxy-service        13:55:22
+{"level":"info","time":"2023-03-02T13:55:25-08:00","caller":"/Users/levischoen/forges/fury/fury-proxy-service/main.go:38","message":"There and back again"}
 ```
 
 ## Testing
@@ -90,7 +90,7 @@ Prefix E2E tests with `TestE2ETest`, e.g. `TestE2ETestHealthCheckReturns200`
 make e2e-test
 ```
 
-The e2e tests won't pass if the proxy service and it's dependencies aren't fully running- e.g. the proxy service can start up in > second but the kava service can take 10's of seconds. To prevent test failures due to that situation, if you are restarting or starting the services for the first time and want to execute the tests immediately call the make `ready` target before the `e2e-test` target.
+The e2e tests won't pass if the proxy service and it's dependencies aren't fully running- e.g. the proxy service can start up in > second but the fury service can take 10's of seconds. To prevent test failures due to that situation, if you are restarting or starting the services for the first time and want to execute the tests immediately call the make `ready` target before the `e2e-test` target.
 
 ```bash
 make ready e2e-test
@@ -179,7 +179,7 @@ funcs
 Set a breakpoint
 
 ```bash
-b github.com/kava-labs/kava-proxy-service/config.ReadConfig
+b github.com/four4two/fury-proxy-service/config.ReadConfig
 ```
 
 Run program until breakpoint is hit
@@ -226,7 +226,7 @@ make debug-cache
 
 ## Publishing
 
-Automatic publishing and deploying of new versions of the proxy service for Kava Labs operated infrastructure follows [this process](https://kava-labs.atlassian.net/wiki/spaces/ENG/pages/1235320861/Deploying+New+Versions+of+the+Proxy+Service)
+Automatic publishing and deploying of new versions of the proxy service for Fury Labs operated infrastructure follows [this process](https://four4two.atlassian.net/wiki/spaces/ENG/pages/1235320861/Deploying+New+Versions+of+the+Proxy+Service)
 
 To manually publish new versions of the docker image for use in a deployed environment, set up a docker buildx builder (for being able to build the image to run on different cpu architectures)
 
@@ -241,22 +241,22 @@ log into the docker registry you will be publishing to
 AWS_PROFILE=shared aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 843137275421.dkr.ecr.us-east-1.amazonaws.com
 # for pushing to a Dockerhub repo
 # create a personal access token first https://docs.docker.com/docker-hub/access-tokens/
-docker login -u kavaops
+docker login -u furyops
 ```
 
 then build and push the image to the desired repository
 
 ```bash
 # push to an AWS ECS repo
-docker buildx build -f ./production.Dockerfile  --platform linux/amd64,linux/arm64 --push -t 843137275421.dkr.ecr.us-east-1.amazonaws.com/kava-proxy-service:latest .
+docker buildx build -f ./production.Dockerfile  --platform linux/amd64,linux/arm64 --push -t 843137275421.dkr.ecr.us-east-1.amazonaws.com/fury-proxy-service:latest .
 # push to public docker repo
-docker buildx build -f ./production.Dockerfile  --platform linux/amd64,linux/arm64 --push -t kava/kava-proxy-service:latest .
+docker buildx build -f ./production.Dockerfile  --platform linux/amd64,linux/arm64 --push -t fury/fury-proxy-service:latest .
 ```
 
 If the service is deployed on AWS ECS, to force ECS to start a new instance of the proxy service with the updated container run, replacing the values of cluster and service as appropriate for your deployment:
 
 ```bash
-AWS_PROFILE=production aws ecs update-service --cluster kava-internal-testnet-proxy-service --service kava-internal-testnet-proxy-service --force-new-deployment
+AWS_PROFILE=production aws ecs update-service --cluster fury-internal-testnet-proxy-service --service fury-internal-testnet-proxy-service --force-new-deployment
 ```
 
 ## Feedback

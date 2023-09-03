@@ -8,10 +8,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/kava-labs/kava-proxy-service/config"
-	"github.com/kava-labs/kava-proxy-service/logging"
-	"github.com/kava-labs/kava-proxy-service/routines"
-	"github.com/kava-labs/kava-proxy-service/service"
+	"github.com/four4two/fury-proxy-service/config"
+	"github.com/four4two/fury-proxy-service/logging"
+	"github.com/four4two/fury-proxy-service/routines"
+	"github.com/four4two/fury-proxy-service/service"
 )
 
 var (

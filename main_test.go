@@ -9,9 +9,9 @@ import (
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/kava-labs/kava-proxy-service/clients/database"
-	"github.com/kava-labs/kava-proxy-service/decode"
-	"github.com/kava-labs/kava-proxy-service/logging"
+	"github.com/four4two/fury-proxy-service/clients/database"
+	"github.com/four4two/fury-proxy-service/decode"
+	"github.com/four4two/fury-proxy-service/logging"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -360,7 +360,7 @@ func TestE2ETestProxyTracksBlockNumberForMethodsWithBlockNumberParam(t *testing.
 
 	// make requests to api and track start / end time of the request
 	// we don't check response errors because the proxy will create metrics
-	// for each request whether the kava node api returns an error or not
+	// for each request whether the fury node api returns an error or not
 	// and if it doesn't the test itself will fail due to missing metrics
 	startTime := time.Now()
 
@@ -471,7 +471,7 @@ func TestE2ETestProxyTracksBlockNumberForMethodsWithBlockHashParam(t *testing.T)
 
 	// make requests to api and track start / end time of the request
 	// we don't check response errors because the proxy will create metrics
-	// for each request whether the kava node api returns an error or not
+	// for each request whether the fury node api returns an error or not
 	// and if it doesn't the test itself will fail due to missing metrics
 	startTime := time.Now()
 

@@ -13,8 +13,8 @@ jobs:
     uses: ./.github/workflows/cd-upgrade-proxy-service.yml
     with:
       aws-region: us-east-1
-      service-name: kava-internal-testnet-proxy-service
-      cluster-name: kava-internal-testnet-proxy-service
-      container-name: kava-internal-testnet-proxy-service
-      task-family-name: kava-internal-testnet-proxy-service
+      service-name: fury-internal-testnet-proxy-service
+      cluster-name: fury-internal-testnet-proxy-service
+      container-name: fury-internal-testnet-proxy-service
+      task-family-name: fury-internal-testnet-proxy-service
     secrets: inherit

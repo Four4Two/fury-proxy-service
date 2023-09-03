@@ -4,13 +4,13 @@ import (
 	"os"
 	"testing"
 
-	"github.com/kava-labs/kava-proxy-service/config"
+	"github.com/four4two/fury-proxy-service/config"
 	"github.com/stretchr/testify/assert"
 )
 
 var (
 	proxyServicePort              = "7777"
-	randomEnvironmentVariableKey  = "TEST_KAVA_RANDOM_VALUE"
+	randomEnvironmentVariableKey  = "TEST_FURY_RANDOM_VALUE"
 	proxyServiceBackendHostURLMap = os.Getenv("TEST_PROXY_BACKEND_HOST_URL_MAP")
 )
 

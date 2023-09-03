@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/kava-labs/kava-proxy-service/clients/database"
+	"github.com/four4two/fury-proxy-service/clients/database"
 )
 
 // createHealthcheckHandler creates a health check handler function that

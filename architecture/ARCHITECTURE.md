@@ -1,6 +1,6 @@
 # Proxy Service Architecture
 
-This [directory](./) contains technical documentation and diagrams for developers and operators of the kava proxy service to use while running or developing the service as a reliable, scalable and observable proxy.
+This [directory](./) contains technical documentation and diagrams for developers and operators of the fury proxy service to use while running or developing the service as a reliable, scalable and observable proxy.
 
 The source for many of the diagrams found in the this documentation can be viewed /edited and updated using [this](https://miro.com/app/board/uXjVMdnhLLo=/?share_link_id=149701470304) miro board.
 
@@ -10,9 +10,9 @@ The source for many of the diagrams found in the this documentation can be viewe
 
 ![Proxy Workflow Conceptual Overview](./images/proxy_workflow_conceptual.jpg)
 
-Clients make requests (e.g. API calls from the [Kava webapp](app.kava.io), other dApps CLIs or scripts) to a public API endpoint URL that maps to a public facing load balancer in AWS. For any request to an API endpoint (such as the Ethereum RPC API) that can be handled by the proxy service, the load balancer will forward the request to an instance of the proxy service.
+Clients make requests (e.g. API calls from the [Fury webapp](app.fury.io), other dApps CLIs or scripts) to a public API endpoint URL that maps to a public facing load balancer in AWS. For any request to an API endpoint (such as the Ethereum RPC API) that can be handled by the proxy service, the load balancer will forward the request to an instance of the proxy service.
 
-The default action performed by the proxy service for each request it gets is to proxy the request to the configured URL of a load balanced set of kava blockchain nodes that can best serve the request (e.g. pruning nodes for requests for latest block data or archive node for request to historical block data).
+The default action performed by the proxy service for each request it gets is to proxy the request to the configured URL of a load balanced set of fury blockchain nodes that can best serve the request (e.g. pruning nodes for requests for latest block data or archive node for request to historical block data).
 
 The proxy functionality provides the foundation for all other proxy service features (e.g. logging, caching) by allowing full introspection and transformation of the original request and ultimate response returned to the client.
 

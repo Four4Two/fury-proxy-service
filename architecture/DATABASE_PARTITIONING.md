@@ -1,8 +1,8 @@
 # Proxied Request Metrics Database Partitioning
 
-Each request to a Kava Labs operated EVM API endpoint results in a new row created in the request metrics table. For mainnet there are currently ~20-30 million EVM requests daily.
+Each request to a Fury Labs operated EVM API endpoint results in a new row created in the request metrics table. For mainnet there are currently ~20-30 million EVM requests daily.
 
-For periods of a month or longer, this large amount of data with default Postgres settings is very slow to query and work over, which is a performance bottleneck for both the daily [metric compaction routines](./METRIC_COMPACTION_ROUTINE.md) and [ad hoc queries](https://kava-labs.atlassian.net/wiki/spaces/ENG/pages/1242398721/Useful+Analytic+Queries) made by empowered operators for analytical and operational purposes.
+For periods of a month or longer, this large amount of data with default Postgres settings is very slow to query and work over, which is a performance bottleneck for both the daily [metric compaction routines](./METRIC_COMPACTION_ROUTINE.md) and [ad hoc queries](https://four4two.atlassian.net/wiki/spaces/ENG/pages/1242398721/Useful+Analytic+Queries) made by empowered operators for analytical and operational purposes.
 
 Thankfully, we can leverage [Postgres partitioning features](https://www.postgresql.org/docs/15/ddl-partitioning.html) to optimize for the above two use cases.
 > Partitioning refers to splitting what is logically one large table into smaller physical pieces. Partitioning can provide several benefits:
@@ -86,7 +86,7 @@ we don't add check constraints because the partitions are created ahead of time,
 
 ops, ci and local tests need partitions for the current week and to be able to query the status of those processes for
 
-https://service.public.testnet.proxy.kava.io/status/database
+https://service.public.testnet.proxy.fury.io/status/database
 
 `/status/database`
 

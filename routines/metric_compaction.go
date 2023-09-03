@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/kava-labs/kava-proxy-service/clients/database"
-	"github.com/kava-labs/kava-proxy-service/logging"
+	"github.com/four4two/fury-proxy-service/clients/database"
+	"github.com/four4two/fury-proxy-service/logging"
 )
 
 // MetricCompactionRoutineConfig wraps values used

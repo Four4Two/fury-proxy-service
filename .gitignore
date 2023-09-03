@@ -6,7 +6,7 @@
 *.dylib
 
 # service binary
-kava-proxy-service
+fury-proxy-service
 
 # Test binary, built with `go test -c`
 *.test

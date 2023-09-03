@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/kava-labs/kava-proxy-service/logging"
+	"github.com/four4two/fury-proxy-service/logging"
 	"github.com/uptrace/bun"
 	"github.com/uptrace/bun/dialect/pgdialect"
 	"github.com/uptrace/bun/driver/pgdriver"

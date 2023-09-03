@@ -1,5 +1,5 @@
 // package config provides functions and values
-// for reading and validating kava proxy service configuration
+// for reading and validating fury proxy service configuration
 package config
 
 import (

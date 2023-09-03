@@ -1,4 +1,4 @@
-module github.com/kava-labs/kava-proxy-service
+module github.com/four4two/fury-proxy-service
 
 go 1.20
 

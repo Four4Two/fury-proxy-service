@@ -17,11 +17,11 @@ CREATE TABLE IF NOT EXISTS proxied_request_metrics(
 
 -- Create partitions for the previous data collection periods
 
--- partition of requests that occurred more than 2 weeks before the kava 13 network upgrade
+-- partition of requests that occurred more than 2 weeks before the fury 13 network upgrade
 CREATE TABLE IF NOT EXISTS proxied_request_metrics_year2023month1_day1 PARTITION OF proxied_request_metrics
 FOR VALUES FROM ('2023-01-01 00:0:0.0') TO ('2023-05-04 00:0:0.0');
 
--- create daily partitions for all requests that occured from within 2 weeks of the kava 13 network upgrade or 2 weeks after the upgrade
+-- create daily partitions for all requests that occured from within 2 weeks of the fury 13 network upgrade or 2 weeks after the upgrade
 CREATE TABLE IF NOT EXISTS proxied_request_metrics_year2023month5_day4 PARTITION OF proxied_request_metrics
 FOR VALUES FROM ('2023-05-04 00:0:0.0') TO ('2023-05-05 00:0:0.0');
 CREATE TABLE IF NOT EXISTS proxied_request_metrics_year2023month5_day5 PARTITION OF proxied_request_metrics

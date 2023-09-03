@@ -12,23 +12,23 @@ import (
 
 	"github.com/urfave/negroni"
 
-	"github.com/kava-labs/kava-proxy-service/clients/database"
-	"github.com/kava-labs/kava-proxy-service/config"
-	"github.com/kava-labs/kava-proxy-service/decode"
-	"github.com/kava-labs/kava-proxy-service/logging"
+	"github.com/four4two/fury-proxy-service/clients/database"
+	"github.com/four4two/fury-proxy-service/config"
+	"github.com/four4two/fury-proxy-service/decode"
+	"github.com/four4two/fury-proxy-service/logging"
 )
 
 const (
 	DefaultAnonymousUserAgent = "anon"
 	// Service defined context keys
-	DecodedRequestContextKey              = "X-KAVA-PROXY-DECODED-REQUEST-BODY"
-	OriginRoundtripLatencyMillisecondsKey = "X-KAVA-PROXY-ORIGIN-ROUNDTRIP-LATENCY-MILLISECONDS"
-	RequestStartTimeContextKey            = "X-KAVA-PROXY-REQUEST-START-TIME"
-	RequestHostnameContextKey             = "X-KAVA-PROXY-REQUEST-HOSTNAME"
-	RequestIPContextKey                   = "X-KAVA-PROXY-REQUEST-IP"
-	RequestUserAgentContextKey            = "X-KAVA-PROXY-USER-AGENT"
-	RequestRefererContextKey              = "X-KAVA-PROXY-REFERER"
-	RequestOriginContextKey               = "X-KAVA-PROXY-ORIGIN"
+	DecodedRequestContextKey              = "X-FURY-PROXY-DECODED-REQUEST-BODY"
+	OriginRoundtripLatencyMillisecondsKey = "X-FURY-PROXY-ORIGIN-ROUNDTRIP-LATENCY-MILLISECONDS"
+	RequestStartTimeContextKey            = "X-FURY-PROXY-REQUEST-START-TIME"
+	RequestHostnameContextKey             = "X-FURY-PROXY-REQUEST-HOSTNAME"
+	RequestIPContextKey                   = "X-FURY-PROXY-REQUEST-IP"
+	RequestUserAgentContextKey            = "X-FURY-PROXY-USER-AGENT"
+	RequestRefererContextKey              = "X-FURY-PROXY-REFERER"
+	RequestOriginContextKey               = "X-FURY-PROXY-ORIGIN"
 	// Values defined by upstream services
 	LoadBalancerForwardedForHeaderKey = "X-Forwarded-For"
 	UserAgentHeaderkey                = "User-Agent"

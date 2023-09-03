@@ -20,5 +20,5 @@ jobs:
       needs: [e2e-tests]
       uses: ./.github/workflows/ci-docker-release.yml
       with:
-        dockerhub-username: kavaops
+        dockerhub-username: furyops
       secrets: inherit
